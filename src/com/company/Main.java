@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         int[] arr = generateAnArray();
-        int[] sortedArray = sort(Main::radixSort,arr);
+        int[] sortedArray = sort(Main::bubleSort,arr);
         System.out.println("your array has elements printed below:");
         printAnArray(sortedArray);
 
@@ -42,9 +42,14 @@ public class Main {
     }
 
     public static void swap(int[] arr, int firstIndex, int secondIndex){
-        int temp = arr[firstIndex];
-        arr[firstIndex] = arr[secondIndex];
-        arr[secondIndex]=temp;
+
+        if (!(arr[firstIndex]==arr[secondIndex])) {
+            int temp = arr[firstIndex];
+            arr[firstIndex] = arr[secondIndex];
+            arr[secondIndex]=temp;
+        }else {
+            return;
+        }
     }
 
     public static int[] generateAnArray(){
